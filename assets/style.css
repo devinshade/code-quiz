@@ -101,9 +101,25 @@ button:hover {
     color: white;
   }
 
-/* TODO: Center the two buttons on the high scores card */
+footer {
+    margin-top: 1px solid gray;
+}
 
-/* #scoreboard {
+/* ! TODO: Center the two buttons on the high scores card */
+
+.btn-scoreboard {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* TODO: Add horizontal line under cards for 'Correct'/'Incorrect' text */
+
+#horizontal-line {
+    border-top: 1px solid gray;
+    margin: 10px;
+}
+
+/* .btn-scoreboard {
     display: flex;
     flex-direction: column;
     justify-content: center;

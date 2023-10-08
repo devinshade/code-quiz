@@ -5,14 +5,17 @@ THEN a timer starts and I am presented with a question
 
 // TODO: When I click the start button then a timer starts
 
-let counter = 0;
+let counter = 75;
 let timeout;
 let timer_on = 0;
+let timer = document.getElementById("timer")
 
 function timedCount() {
-  document.getElementById("countdown").value = counter;
-  counter++;
-  timeout = setTimeout(timedCount, 1000);
+    timer.textContent = counter
+    document.querySelector("btn-start").onclick = counter;
+    document.getElementById("timer").value = counter;
+    --counter;
+    // timeout = setTimeout(timedCount, 1000);
 }
 
 function startCount() {
