@@ -12,7 +12,7 @@
             <nav>
                 <div id="high-scores">
                     <ul>
-                        <li><a src="#scoreboard">View High Scores</a></li>
+                        <li><a href="#scoreboard">View High Scores</a></li>
                     </ul>
                 </div>
 
@@ -27,13 +27,18 @@
         <main>
             <div id="quiz-container"></div>
         <!-- Title Page -->
-                <section id="title-page" class="card">
-                    <h1>Coding Quiz Challenge</h1>
-                    <p id="subtext">
+                <section id="card" class="card d-none">
+                    <h1 id="card-title">Coding Quiz Challenge</h1>
+                    <p id="items">
                         Try to answer the following code-related questions within the time limit.<br>
                         Keep in mind that incorrect answers will penalize your score/time by ten seconds!
                     </p>
                     <button id="btn-start" type="button">START</button>
+                </section>
+                <section>
+                    <ol>
+                        <li id="answers"></li>
+                    </ol>
                 </section>
             <!-- Question 1 -->
                 <!-- <section id="q-1" class="card">

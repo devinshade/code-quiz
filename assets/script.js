@@ -3,45 +3,57 @@ WHEN I click the start button
 THEN a timer starts and I am presented with a question
 */
 
-// TODO: When I click the start button then a timer starts
 const btnStart = document.getElementById("btn-start");
 const timerEl = document.getElementById("timer");
-const countdown = document.getElementById("counter")
+const countdown = document.getElementById("counter");
+const items = document.getElementById("items");
+const quizCards = document.getElementById("card");
+const cardTitle = document.getElementById("card-title")
+const answers = document.getElementById("answers")
+const currentIndex = 0;
 const cards = [
     {
         question: "Commonly used data types DO Not Include:",
-        choices: ["Strings", "Boolean", "Alerts", "Numbers"],
+        choices: ["1. Strings", "2. Boolean", "3. Alerts", "4. Numbers"],
         answer:  "Alerts"
     },
 
     {
         question: "The condition in an if / else statement is enclosed with _______.",
-        choices: ["Quotes", "Curly Brackets", "Parenthesis", "Square Brackets"],
+        choices: ["1. Quotes", "2. Curly Brackets", "3. Parenthesis", "4. Square Brackets"],
         answer:  "Parenthesis"
     },
 
     {
         question: "Arrays in JavaScript can be used to store _______.",
-        choices: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"],
+        choices: ["1. Numbers and Strings", "2. Other Arrays", "3. Booleans", "4. All of the Above"],
         answer:  "All of the Above"
     },
 
     {
         question: "String values must be enclosed within _______ when being assigned to variables.",
-        choices: ["Commas", "Curly Brackets", "Quotes", "Parenthesis"],
+        choices: ["1. Commas", "2. Curly Brackets", "3. Quotes", "4. Parenthesis"],
         answer: "Quotes"
     },
 
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices: ["JavaScript", "Terminal/Bash", "for Loops", "console.log"],
+        choices: ["1. JavaScript", "2. Terminal/Bash", "3. for Loops", "4. console.log"],
         answer: "console.log"
     },
-]
+];
 
+// ! TODO: When I click the start button then a timer starts
 
 btnStart.addEventListener("click", () => {
     startQuiz(); // Call the startQuiz function when the button is clicked
+    console.log("GUMMY")
+    items.classList.add("d-none");
+    btnStart.classList.add("d-none");
+    quizCards.classList.remove("d-none")
+    next = cards[currentIndex]
+    console.log(next.question)
+    displayQuestion(next);
 });
 
 function startQuiz() {
@@ -58,13 +70,37 @@ function startQuiz() {
 
     if (timerValue < 0) {
         clearInterval(countdownInterval);
-        countdownEl.textContent = "Failed - try again!"
+        countdownEl.textContent = "Failed - try again!";
     }
 }
 
 updateCountdown();
 
-const countdownInterval = setInterval(updateCountdown, 1000)
+const countdownInterval = setInterval(updateCountdown, 1000);
 }
 
 // TODO: When I click the start button then I'm presented with a question
+
+function displayQuestion(question) {
+    cardTitle.innerText = question.question;
+    question.choices.forEach(element => {
+        var button = document.createElement("button");
+        button.className = "btn-next";
+        button.innerText = element
+        answers.appendChild(button)
+        button.addEventListener("click", displayNext)
+    });
+}
+
+// ! TODO: FOR TOMORROW - add displayNext function
+function displayNext(e) {
+    if (currentIndex < cards.length -1) {
+        ++currentIndex;
+    } else {
+        currentIndex = 0;
+    }
+
+        correction(e.target.innerText == cards[currentIndex].answer);
+        answers.innerHTML = "" ;
+        displayQuestion(cards[currentIndex]);
+}

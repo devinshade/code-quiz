@@ -43,7 +43,7 @@ h1, h2 {
     padding: 50px;
 }
 
-#title-page {
+#card {
     display: flex;
     flex-direction: column;
     justify-content: center;
