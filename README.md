@@ -35,6 +35,7 @@ THEN I can save my initials and score
 ## Usage
 
 ![Quick Look](./assets/Screenshot%202023-10-16%20at%208.17.39 PM.png)
+[Challenge 4: Code Quiz](https://devinshade.github.io/code-quiz/)
 
 ## Credits
 
