@@ -48,9 +48,6 @@ const cards = [
 btnStart.addEventListener("click", () => {
     startQuiz(); // Call the startQuiz function when the button is clicked
     console.log("GUMMY")
-    items.classList.add("d-none");
-    btnStart.classList.add("d-none");
-    quizCards.classList.remove("d-none")
     next = cards[currentIndex]
     console.log(next.question)
     displayQuestion(next);
@@ -81,26 +78,31 @@ const countdownInterval = setInterval(updateCountdown, 1000);
 
 // TODO: When I click the start button then I'm presented with a question
 
+
+
 function displayQuestion(question) {
     cardTitle.innerText = question.question;
     question.choices.forEach(element => {
-        var button = document.createElement("button");
-        button.className = "btn-next";
-        button.innerText = element
-        answers.appendChild(button)
-        button.addEventListener("click", displayNext)
+        var button = document.getElementById("items")
+        const answersEl = document.getElementById("answers")
+        answersEl.innerText = element;
+        // var button = document.getElementById("answers");
+        // button.className = "btn-next";
+        // answers.innerText = element
+        // answersEl.appendChild(answers)
+        // button.addEventListener("click", displayNext)
     });
 }
 
-// ! TODO: FOR TOMORROW - add displayNext function
-function displayNext(e) {
-    if (currentIndex < cards.length -1) {
-        ++currentIndex;
-    } else {
-        currentIndex = 0;
-    }
+// // ! TODO: FOR TOMORROW - add displayNext function
+// function displayNext(e) {
+//     if (currentIndex < cards.length -1) {
+//         ++currentIndex;
+//     } else {
+//         currentIndex = 0;
+//     }
 
-        correction(e.target.innerText == cards[currentIndex].answer);
-        answers.innerHTML = "" ;
-        displayQuestion(cards[currentIndex]);
-}
+//         correction(e.target.innerText == cards[currentIndex].answer);
+//         answers.innerHTML = "" ;
+//         displayQuestion(cards[currentIndex]);
+// }
