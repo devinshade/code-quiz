@@ -1,4 +1,128 @@
-*{
+/* v.2 post-bootcamp */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+nav {
+    display: flex;
+    justify-content:space-around;
+}
+
+ul {
+    list-style-type: none; /* Remove bullets */
+}
+
+#hs-btn {
+    background-color: white;
+    padding: .5rem;
+    border-radius: 0, 0, 10px, 10px;
+}
+
+#hs-btn:hover {
+    background-color: #70b5ff;
+    color: white;
+}
+
+#hs-link {
+    text-decoration: none;
+}
+
+#view-hs {
+    padding: 0%;
+    margin: 0%;
+}
+
+#countdown {
+    justify-content: end;
+}
+
+.quiz-container {
+    flex-direction: column;
+    width: 30rem;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.6rem 0.1rem rpga(0, 0, 0, 0.1);
+}
+
+#start-container {
+    flex-direction: column;
+    text-align: center;
+    gap: .5rem;
+    padding: 2rem;
+}
+
+#question-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+#question {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+
+.answer-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input {
+    width: fit-content;
+}
+
+.btn {
+    padding: 1.5rem;
+    background-color: #70b5ff;
+    color: white;
+    border: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+inupt,
+.btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #3282d8;
+}
+
+.hide {
+    display: none;
+}
+
+#result {
+    margin: 2rem auto;
+}
+
+#start,
+#question,
+#result {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* v.1 original styling */
+
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,24 +130,10 @@
 
 html, body{
     height: 100%;
-}
+} */
 
-nav {
-    display: flex;
-}
 
-ul {
-    list-style: none;
-}
-
-#countdown {
-    position: absolute;
-    right: 150px;
-    width: 200px;
-    height: 120px;
-}
-
-main{
+/* main{
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -31,9 +141,9 @@ main{
     justify-content: center;
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
-}
+} */
 
-h1, h2 {
+/* h1, h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,83 +151,70 @@ h1, h2 {
     font-size: 45px;
     margin: 25px;
     padding: 50px;
-}
-
+} */
+/* 
 #card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+} */
 
-ol {
+/* ol {
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-}
+} */
 
-li {
+/* li {
     transition-duration: 0.3s;
-}
+} */
 
-li button {
+/* li button {
     margin: 10px;
     padding: 20px;
     width: 94%;
     text-align: left;
-}
-
+} */
+/* 
 .quiz-container {
     margin: 50px;
     padding: 25px;
-}
+} */
 
-.card {
+/* .card {
     border: 2px solid black;
     border-radius: 10%;
     box-shadow: 10px 10px 10px 2px;
     margin: 50px;
     padding: 25px;
     width: 730px;
-}
+} */
 
-button {
-    background-color: rgb(127, 255, 212);
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    transition-duration: 0.3s;
-    border: none;
-    border-radius: 7px;
-    padding: 5px 10px;
-    margin: 20px;
-    width: 200px;
-}
-
-button:hover {
+/* button:hover {
     background-color: rgb(60, 222, 168);
     color: white;
-  }
+  } */
 
-footer {
+/* footer {
     margin-top: 1px solid gray;
-}
+} */
 
 /* ! TODO: Center the two buttons on the high scores card */
 
-.btn-scoreboard {
+/* .btn-scoreboard {
     display: flex;
     justify-content: space-evenly;
-}
+} */
 
 /* TODO: Add horizontal line under cards for 'Correct'/'Incorrect' text */
 
-#horizontal-line {
+/* #horizontal-line {
     border-top: 1px solid gray;
     margin: 10px;
-}
+} */
 
 /* .btn-scoreboard {
     display: flex;

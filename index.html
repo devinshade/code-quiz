@@ -8,38 +8,63 @@
     </head>
     <!-- v.2 post-bootcamp -->
     <body>
-        <div class="quiz-container">
-            <div id="question-container">
-                <h3 id="question">Question</h3>
-                <div id="answer-btns"></div>
-            </div>
-        </div>
-        <button  id="next-btn" class="btn hide">Next</button>
-        <div id="result" class="hide"></div>
-        <button  id="restart-btn" class="btn hide">Restart</button>
-    </body>
-    <!-- v. 1 Original code -->
-    <body>
-        <header>
-            <nav>
-                <div id="high-scores">
+        <!-- <header>
+            <nav class="container">
+                <div id="high-scores" class="row">
                     <ul>
                         <li><a href="#scoreboard">View High Scores</a></li>
                     </ul>
                 </div>
-
                 <div id="countdown">
                     <ul>
                         <li>Time: <span id="timer">75</span></li>
                     </ul>
                 </div>
             </nav>
-        </header>
-
+        </header> -->
+        <div class="quiz-container">
+            <nav>
+                <button type="button" class="btn" id="hs-btn">
+                    <ul id="view-hs">
+                        <li><a id="hs-link" href="#scoreboard">View High Scores</a></li>
+                    </ul>
+                </button>
+                <div id="countdown">
+                    <ul>
+                        <li>Time: <span id="timer">75</span></li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="start-container">
+                <h3 id="start" >Coding Quiz Challenge</h3>
+                    <p>Try to answer the following code-related questions within the time limit.
+                        Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                <button  id="start-btn" class="btn hide">Start</button>
+            </div>
+            <div id="question-container">
+                <h3 id="question">Question</h3>
+                <div id="answer-btns"></div>
+                <button  id="next-btn" class="btn hide">Next</button>
+                <div id="result" class="hide"></div>
+                <button  id="restart-btn" class="btn hide">Restart</button>
+            </div>
+            <section id="final-container">
+                <h2>All done!</h2>
+                <p>Your final score is:</p>
+                <form id="final-submit">
+                    <label>Enter initials:</label>
+                    <input />
+                    <button type="button">Submit</button>
+                </form>
+            </section>
+        </div>
+    </body>
+    <!-- v. 1 Original code -->
+    <body>
         <main>
-            <div id="quiz-container"></div>
+            <!-- <div id="quiz-container"></div> -->
         <!-- Title Page -->
-                <section id="card" class="card">
+                <!-- <section id="card" class="card">
                     <h1 id="card-title">Coding Quiz Challenge</h1>
                     <p id="items">
                         Try to answer the following code-related questions within the time limit.<br>
@@ -51,7 +76,7 @@
                             <li><button id="answers" class="choices d-none"></buttonid></li>
                         </ol>
                     </section>
-            </section>
+            </section> -->
                
             <!-- Question 1 -->
                 <!-- <section id="q-1" class="card">
