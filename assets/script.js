@@ -70,6 +70,7 @@ function startState() {
     startDiv.classList.remove("hide");
     startBtn.classList.remove("hide");
 }
+// ! TODO: When I click the start button then a timer starts
 // add start button eventListener to start timer and switch to questions
 
 startBtn.addEventListener("click", () => {
@@ -77,6 +78,8 @@ startBtn.addEventListener("click", () => {
     startQuiz(); // Call the startQuiz function when the button is clicked
     console.log("Quiz started");
 });
+
+// ! TODO: When I click the start button then I'm presented with a question
 
 function startQuiz() {
     score = 0;
@@ -173,67 +176,3 @@ function endQuiz() {
     resultDiv.classList.remove("hide");
     resultDiv.innerText = `Your final score: ${score} / ${shuffledQuestions.length}`
 }
-
-// v.1 bootcamp js
-
-// ! TODO: When I click the start button then a timer starts
-
-// btnStart.addEventListener("click", () => {
-//     startQuiz(); // Call the startQuiz function when the button is clicked
-//     console.log("GUMMY")
-//     next = cards[currentIndex]
-//     console.log(next.question)
-//     displayQuestion(next);
-// });
-
-// function startQuiz() {
-//     console.log("GUMGUM");
-//     setTimeout(() => {
-//         console.log("Time expired!");
-//     }, 75000);
-
-//     var timerValue = 75;
-//     function updateCountdown() {
-//     const countdownEl = document.getElementById("timer");
-//     countdownEl.textContent = timerValue;
-//     --timerValue;
-
-//     if (timerValue < 0) {
-//         clearInterval(countdownInterval);
-//         countdownEl.textContent = "Failed - try again!";
-//     }
-// }
-
-// updateCountdown();
-
-// const countdownInterval = setInterval(updateCountdown, 1000);
-// }
-
-// TODO: When I click the start button then I'm presented with a question
-
-// function displayQuestion(question) {
-//     cardTitle.innerText = question.question;
-//     question.choices.forEach(element => {
-//         var button = document.getElementById("items")
-//         const answersEl = document.getElementById("answers")
-//         answersEl.innerText = element;
-//         var button = document.getElementById("answers");
-//         button.className = "btn-next";
-//         answers.innerText = element
-//         answersEl.appendChild(answers)
-//         button.addEventListener("click", displayNext)
-//     });
-// }
-
-// // ! TODO: FOR TOMORROW - add displayNext function
-// function displayNext(e) {
-//     if (currentIndex < cards.length -1) {
-//         ++currentIndex;
-//     } else {
-//         currentIndex = 0;
-//     }
-
-//         correction(e.target.innerText == cards[currentIndex].answer);
-//         answers.innerHTML = "" ;
-//         displayQuestion(cards[currentIndex]);
-// }
