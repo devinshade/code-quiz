@@ -8,37 +8,16 @@
     </head>
     <!-- v.2 post-bootcamp -->
     <body>
-        <!-- <header>
-            <nav class="container">
-                <div id="high-scores" class="row">
-                    <ul>
-                        <li><a href="#scoreboard">View High Scores</a></li>
-                    </ul>
-                </div>
-                <div id="countdown">
-                    <ul>
-                        <li>Time: <span id="timer">75</span></li>
-                    </ul>
-                </div>
-            </nav>
-        </header> -->
         <div class="quiz-container">
             <nav>
-                <button type="button" class="btn" id="hs-btn">
-                    <ul id="view-hs">
-                        <li><a id="hs-link" href="#scoreboard">View High Scores</a></li>
-                    </ul>
-                </button>
-                <div id="countdown">
-                    <ul>
-                        <li>Time: <span id="timer">75</span></li>
-                    </ul>
-                </div>
+                <button type="button" class="btn hide" id="hs-btn">View High Scores</button>
+                <div id="countdown" class="hide">Time: <span id="timer">75</span></div>
             </nav>
             <div id="start-container">
                 <h3 id="start" >Coding Quiz Challenge</h3>
-                    <p>Try to answer the following code-related questions within the time limit.
-                        Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                    <p>Try to answer the following code-related questions within the time limit.<br>
+                        Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+                    </p>
                 <button  id="start-btn" class="btn hide">Start</button>
             </div>
             <div id="question-container">
@@ -50,12 +29,12 @@
             </div>
             <!-- Final score page -->
             <section id="final-container">
-                <h2>All done!</h2>
+                <h2>Great Job!</h2>
                 <p>Your final score is:</p>
                 <form id="final-submit">
                     <label>Enter initials:</label>
                     <input />
-                    <button type="button">Submit</button>
+                    <button type="button" class="btn hide">Submit</button>
                 </form>
             </section>
             <!-- High score page -->
@@ -64,9 +43,8 @@
                 <ol>
                     <li></li>
                 </ol>
-                <div class="btn-scoreboard">
-                    <button type="button">Go back</button>
-                    <button type="button">Clear high scores</button>
+                <div id="scoreboard-btns">
+                    <button type="button" id="return-btn" class="btn hide">Return to Quiz</button>
                 </div>
             </section>
         </div>
@@ -76,6 +54,5 @@
         </footer> -->
 
         <script type="text/JavaScript" src="assets/script.js"></script>
-
     </body>
 </html>

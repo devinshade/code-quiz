@@ -10,7 +10,10 @@ const nextBtn = document.getElementById("next-btn");
 const restartBtn = document.getElementById("restart-btn");
 const resultDiv = document.getElementById("result");
 const finalContainer = document.getElementById("final-container");
-// TODO: import high score and make only visible when link is clicked
+const scoreboard = document.getElementById("scoreboard");
+const highScoreButton = document.getElementById("hs-btn");
+const countdown = document.getElementById("countdown");
+const returnBtn = document.getElementById("return-btn")
 
 let shuffledQuestions, currentQuestionsIndex, score;
 
@@ -68,29 +71,33 @@ function startState() {
     startContainer.style.display = "flex";
     questionContainer.style.display = "none";
     finalContainer.style.display = "none";
+    scoreboard.style.display = "none";
+    highScoreButton.classList.remove("hide");
+    countdown.classList.add("hide");
     nextBtn.classList.add("hide");
     restartBtn.classList.add("hide");
     startDiv.classList.remove("hide");
     startBtn.classList.remove("hide");
-}
-// ! TODO: When I click the start button then a timer starts
-// add start button eventListener to start timer and switch to questions
+};
 
+// add start button eventListener to start timer and switch to questions
 startBtn.addEventListener("click", () => {
     startBtn.classList.add("hide");
     startQuiz(); // Call the startQuiz function when the button is clicked
     console.log("Quiz started");
 });
 
-// ! TODO: When I click the start button then I'm presented with a question
 function startQuiz() {
     score = 0;
     questionContainer.style.display = "flex";
     startContainer.style.display = "none";
     finalContainer.style.display = "none";
+    scoreboard.style.display = "none";
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionsIndex = 0;
+    countdown.classList.remove("hide");
     nextBtn.classList.remove("hide");
+    highScoreButton.classList.add("hide");
     restartBtn.classList.add("hide");
     resultDiv.classList.add("hide");
     startDiv.classList.add("hide");
@@ -176,9 +183,22 @@ restartBtn.addEventListener("click", startQuiz);
 function endQuiz() {
     finalContainer.style.display = "flex";
     questionContainer.style.display = "none";
+    scoreboard.style.display = "none";
     nextBtn.classList.add("hide");
     restartBtn.classList.remove("hide");
     resultDiv.classList.remove("hide");
     resultDiv.innerText = `Your final score: ${score} / ${shuffledQuestions.length}`
 }
 
+highScoreButton.addEventListener("click", showScoreboard);
+
+function showScoreboard() {
+    scoreboard.style.display = "flex";
+    startContainer.style.display = "none";
+    questionContainer.style.display = "none";
+    finalContainer.style.display = "none";
+    returnBtn.classList.remove("hide");
+    highScoreButton.classList.add("hide");
+}
+
+returnBtn.addEventListener("click", startState);
