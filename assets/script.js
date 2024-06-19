@@ -106,23 +106,29 @@ function startQuiz() {
     }, 75000);
 
     setNextQuestion();
-    
+
+// ! BUGS
+// todo: decrement time by 10sec for wrong answers
+// todo: stop timer when user completes quiz
     var timerValue = 75;
-    // TODO: not working - timer doesn't decrease by 10 with wrong answers
     function updateCountdown() {
         const countdownEl = document.getElementById("timer");
-        countdownEl.textContent = timerValue;
+        countdownEl.textContent = timerValue
         --timerValue;
-    // TODO: continues counting upon completing quiz
+
         if (timerValue < 0) {
             clearInterval(countdownInterval);
             countdownEl.textContent = "Failed - try again!";
         }
+
+        if (questionIndex >= quizQuestions.length - 1 && checkbox.checked === true) {
+            stopTimer();
+        }
     }
     
     updateCountdown();
-    
     const countdownInterval = setInterval(updateCountdown, 1000);
+    
 };
 
 function setNextQuestion() {
