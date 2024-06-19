@@ -109,7 +109,7 @@ function startQuiz() {
 
 // ! BUGS
 // todo: decrement time by 10sec for wrong answers
-// todo: stop timer when user completes quiz
+// ! todo: stop timer when user completes quiz
     var timerValue = 75;
     function updateCountdown() {
         const countdownEl = document.getElementById("timer");
@@ -121,9 +121,13 @@ function startQuiz() {
             countdownEl.textContent = "Failed - try again!";
         }
 
-        if (questionIndex >= quizQuestions.length - 1 && checkbox.checked === true) {
+        if (currentQuestionsIndex >= questions.length - 1 || answerBtns.answers === true) {
             stopTimer();
         }
+    }
+
+    function stopTimer() {
+        clearInterval(countdownInterval);
     }
     
     updateCountdown();
