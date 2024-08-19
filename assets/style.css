@@ -75,6 +75,11 @@ nav {
     border-radius: 1rem;
 }
 
+#submit-btn {
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
 .input-group {
     display: flex;
     align-items: center;
@@ -87,7 +92,7 @@ input {
 
 .btn {
     padding: 1.5rem;
-    background-color: #70b5ff;
+    background-color: #70b3ff;
     color: white;
     border: none;
     border-radius: 0 0 0.5rem 0.5rem;

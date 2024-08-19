@@ -24,25 +24,22 @@
                 <h3 id="question">Question</h3>
                 <div id="answer-btns"></div>
                 <button  id="next-btn" class="btn hide">Next</button>
-                <div id="result" class="hide"></div>
-                <button  id="restart-btn" class="btn hide">Restart</button>
             </div>
             <!-- Final score page -->
             <section id="final-container">
                 <h2>Great Job!</h2>
-                <p>Your final score is:</p>
+                <div id="result" class="hide"></div>
                 <form id="final-submit">
                     <label>Enter initials:</label>
                     <input />
-                    <button type="button" class="btn hide">Submit</button>
+                    <button id="submit-btn" type="button" class="btn">Submit</button>
                 </form>
+                <button  id="restart-btn" class="btn hide">Restart</button>
             </section>
             <!-- High score page -->
             <section id="scoreboard">
                 <h2>High Scores</h2>
-                <ol>
-                    <li></li>
-                </ol>
+                <div id="leaderboard" class="hide"></div>
                 <div id="scoreboard-btns">
                     <button type="button" id="return-btn" class="btn hide">Return to Quiz</button>
                 </div>
@@ -50,7 +47,7 @@
         </div>
 <!-- TODO: footer -->
         <!-- <footer id="horizontal-line">
-            <div>You are: !</div>
+            <div>Player: !</div>
         </footer> -->
 
         <script type="text/JavaScript" src="assets/script.js"></script>

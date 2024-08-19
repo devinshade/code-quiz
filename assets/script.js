@@ -13,7 +13,8 @@ const finalContainer = document.getElementById("final-container");
 const scoreboard = document.getElementById("scoreboard");
 const highScoreButton = document.getElementById("hs-btn");
 const countdown = document.getElementById("countdown");
-const returnBtn = document.getElementById("return-btn")
+const returnBtn = document.getElementById("return-btn");
+const leaderboardDiv = document.getElementById("leaderboard")
 
 let shuffledQuestions, currentQuestionsIndex, score;
 
@@ -107,32 +108,43 @@ function startQuiz() {
 
     setNextQuestion();
 
+var timerValue = 75;
+function updateCountdown() {
+    const countdownEl = document.getElementById("timer");
+    countdownEl.textContent = timerValue
+    --timerValue;
+    
+    if (timerValue < 0) {
+        clearInterval(countdownInterval);
+        countdownEl.textContent = "Failed - try again!";
+    }
+    
+    if (currentQuestionsIndex >= questions.length - 1 || answerBtns.answers === true) {
+        stopTimer();
+    }
+
+    // if (answerBtns.answers === false) {
+    //     setInterval(countdownInterval, 500);    }
+}
+
+function stopTimer() {
+    clearInterval(countdownInterval);
+}
+
+updateCountdown();
+const countdownInterval = setInterval(updateCountdown, 1000);
+
 // ! BUGS
 // todo: decrement time by 10sec for wrong answers
-// ! todo: stop timer when user completes quiz
-    var timerValue = 75;
-    function updateCountdown() {
-        const countdownEl = document.getElementById("timer");
-        countdownEl.textContent = timerValue
-        --timerValue;
+// function decreaseByTen() {
+//     for (let i=0; i < answerBtns.answers; ++i) {
+//         if (answerBtns.answers[i].selected) {
+//             --countdownInterval;
+//         }
+//         setInterval(countdownInterval, 500);
+//     }
+// }
 
-        if (timerValue < 0) {
-            clearInterval(countdownInterval);
-            countdownEl.textContent = "Failed - try again!";
-        }
-
-        if (currentQuestionsIndex >= questions.length - 1 || answerBtns.answers === true) {
-            stopTimer();
-        }
-    }
-
-    function stopTimer() {
-        clearInterval(countdownInterval);
-    }
-    
-    updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
-    
 };
 
 function setNextQuestion() {
@@ -175,9 +187,9 @@ nextBtn.addEventListener("click", () => {
         if (answerIndex !== -1) {
             if(shuffledQuestions[currentQuestionsIndex].answers[answerIndex].
                 correct) {
-                    ++score;
+                score++;
                 }
-                ++currentQuestionsIndex;
+                currentQuestionsIndex++;
                 if(shuffledQuestions.length > currentQuestionsIndex) {
                     setNextQuestion();
                 } else {
@@ -194,11 +206,13 @@ function endQuiz() {
     finalContainer.style.display = "flex";
     questionContainer.style.display = "none";
     scoreboard.style.display = "none";
+    highScoreButton.classList.remove("hide");
     nextBtn.classList.add("hide");
     restartBtn.classList.remove("hide");
     resultDiv.classList.remove("hide");
     resultDiv.innerText = `Your final score: ${score} / ${shuffledQuestions.length}`
 }
+
 
 highScoreButton.addEventListener("click", showScoreboard);
 
@@ -209,6 +223,59 @@ function showScoreboard() {
     finalContainer.style.display = "none";
     returnBtn.classList.remove("hide");
     highScoreButton.classList.add("hide");
+    leaderboardDiv.classList.remove("hide");
+    // BUG: input is not defined
+    leaderboardDiv.innerText = `1. ${input} - ${score}`
 }
 
 returnBtn.addEventListener("click", startState);
+
+// todo: use generated answer below to troubleshoot timer
+/*
+<!-- chat gpt answer -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Example</title>
+</head>
+<body>
+    <div>
+        <p>Time Remaining: <span id="timer">60</span> seconds</p>
+        <button onclick="answerQuestion(false)">Answer Wrong</button>
+        <button onclick="answerQuestion(true)">Answer Correct</button>
+    </div>
+
+    <script>
+        // Initialize the timer (e.g., 60 seconds)
+        let timeRemaining = 60;
+        const timerElement = document.getElementById('timer');
+
+        // Function to start the timer countdown
+        function startTimer() {
+            const timerInterval = setInterval(() => {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    timerElement.textContent = timeRemaining;
+                } else {
+                    clearInterval(timerInterval);
+                    alert('Time is up!');
+                }
+            }, 1000); // 1000ms = 1s interval
+        }
+
+        // Function to handle question answers
+        function answerQuestion(isCorrect) {
+            if (!isCorrect) {
+                timeRemaining = Math.max(0, timeRemaining - 10); // Decrement by 10 seconds but not below 0
+                timerElement.textContent = timeRemaining;
+            }
+        }
+
+        // Start the timer when the page loads
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
+*/
